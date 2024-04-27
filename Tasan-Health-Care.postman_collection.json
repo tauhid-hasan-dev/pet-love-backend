@@ -1,0 +1,433 @@
+{
+	"info": {
+		"_postman_id": "adbadbe3-8d7e-4f18-8e6f-47c062deac71",
+		"name": "Tasan-Health-Care",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32340241",
+		"_collection_link": "https://me2222-4499.postman.co/workspace/me-Workspace~3197b940-23a6-4804-9622-d122fe46b31d/collection/32340241-adbadbe3-8d7e-4f18-8e6f-47c062deac71?action=share&source=collection_link&creator=32340241"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "create-admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwZDQxNjM4NC0zOTNhLTRmZGYtYTdkYy03ZTllNjFkNzgxZGMiLCJyb2xlIjoiQURNSU4iLCJlbWFpbCI6ImRhbmlzbWFubGlrYWx0b3JAZ21haWwuY29tIiwiaWF0IjoxNzEzODY1MzI1LCJleHAiOjE3MTQ3MjkzMjV9.ptLM2a274f8SYbeo_b5g_t8e79gFRCn2A5Q8OwK37OQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Tauhid_Hasan/Downloads/albert.jpg"
+								},
+								{
+									"key": "data",
+									"value": "{\n    \"password\": \"123456\",\n    \"admin\": {\n        \"name\": \"Kamal Uddin\",\n        \"email\": \"kamal@gmail.com\",\n        \"contactNumber\": \"44444441\"\n    }\n}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/user/create-admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"create-admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-admin",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Y2RmNzEwZC1kYjhiLTRhOWUtOTFkZC05MDAxODc4OTRmMTIiLCJyb2xlIjoiU1VQRVJfQURNSU4iLCJlbWFpbCI6Im11YXpAZ21haWwuY29tIiwiaWF0IjoxNzEzNzIyMjUxLCJleHAiOjE3MTM4MDg2NTF9.i0rHEAwAIESPhP_0U7xhXC8prfvlHD_hUfDPzQ2nvfs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"admin"
+							],
+							"query": [
+								{
+									"key": "searchTerm",
+									"value": "az@g",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Muaz Hasan",
+									"disabled": true
+								},
+								{
+									"key": "emailsdf",
+									"value": "sdfsd",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "5",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "name",
+									"disabled": true
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-admin-by-id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/admin/4668712c-d850-4221-b37e-96c2ab8f43ce",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"4668712c-d850-4221-b37e-96c2ab8f43ce"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-admin",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ahmetsssss\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/admin/66dea61f-6d51-499e-9578-1da70d71c5a2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"66dea61f-6d51-499e-9578-1da70d71c5a2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-from-db",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/admin/4668712c-d850-4221-b37e-96c2ab8f43ce",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"4668712c-d850-4221-b37e-96c2ab8f43ce"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "soft-delete-from-db",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/admin/soft/7de68756-9e81-41f9-a47d-b7a8789f57d9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"soft",
+								"7de68756-9e81-41f9-a47d-b7a8789f57d9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"danismanlikaltor@gmail.com\",\r\n    \"password\":\"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh-token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/refresh-token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change-password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1Y2RmNzEwZC1kYjhiLTRhOWUtOTFkZC05MDAxODc4OTRmMTIiLCJyb2xlIjoiU1VQRVJfQURNSU4iLCJlbWFpbCI6Im11YXpAZ21haWwuY29tIiwiaWF0IjoxNzEzNzczNDM4LCJleHAiOjE3MTQ2Mzc0Mzh9.DQmUfMwxW71vPOPe6UYUY_oeNpMpdjdFMdnFT7eFx_c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\": \"654321\",\r\n    \"newPassword\": \"789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/change-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgot-password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"danismanlikaltor@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/forgot-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset-password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbmlzbWFubGlrYWx0b3JAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzEzNzc1ODg2LCJleHAiOjE3MTQ2Mzk4ODZ9.zKdUK1Xkz3dgqVjPWLNsjTEZ7jX8a0Kv-LtzS98MJYo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"0d416384-393a-4fdf-a7dc-7e9e61d781dc\",\r\n    \"newPassword\": \"123\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/auth/reset-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
