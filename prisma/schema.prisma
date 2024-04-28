@@ -15,14 +15,16 @@ datasource db {
 
 model User {
   id                 String     @id @default(uuid())
+  name               String     
   email              String     @unique
   password           String
   createdAt          DateTime   @default(now())
   updatedAt          DateTime   @updatedAt
-  adoptionRequests    AdoptionRequest[]
+  adoptionRequests   AdoptionRequest[]
 
   @@map("users")
 }
+
 
 model Pet {
   id                   String   @id @default(uuid())

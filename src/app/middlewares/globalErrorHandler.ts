@@ -1,17 +1,17 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
-import config from '../../config';
-import ApiError from '../../errors/ApiError';
-import handleValidationError from '../../errors/handleValidationError';
+import { ErrorRequestHandler, NextFunction, Request, Response } from "express";
+import config from "../../config";
+import ApiError from "../../errors/ApiError";
+import handleValidationError from "../../errors/handleValidationError";
 
-import { Prisma } from '@prisma/client';
-import { ZodError } from 'zod';
-import handleClientError from '../../errors/handleClientError';
-import handleZodError from '../../errors/handleZodError';
+import { Prisma } from "@prisma/client";
+import { ZodError } from "zod";
+import handleClientError from "../../errors/handleClientError";
+import handleZodError from "../../errors/handleZodError";
 
-import { IGenericErrorMessage } from '../../interfaces/error';
+import { IGenericErrorMessage } from "../../interfaces/error";
 
 const globalErrorHandler: ErrorRequestHandler = (
   error,
@@ -19,14 +19,12 @@ const globalErrorHandler: ErrorRequestHandler = (
   res: Response,
   next: NextFunction
 ) => {
-
   /* console.log(error, 'from global error handler')
-  config.env === 'development'
-    ? console.log(`🐱‍🏍 globalErrorHandler ~~`, { error })
+  config.env === 'development' ? console.log(`🐱‍🏍 globalErrorHandler ~~`, { error })
     : errorlogger.error(`🐱‍🏍 globalErrorHandler ~~`, error); */
 
   let statusCode = 500;
-  let message = 'Something went wrong !';
+  let message = "Something went wrong !";
   let errorMessages: IGenericErrorMessage[] = [];
 
   if (error instanceof Prisma.PrismaClientValidationError) {
@@ -49,29 +47,28 @@ const globalErrorHandler: ErrorRequestHandler = (
     message = error.message;
     errorMessages = error?.message
       ? [
-        {
-          path: '',
-          message: error?.message,
-        },
-      ]
+          {
+            path: "",
+            message: error?.message,
+          },
+        ]
       : [];
   } else if (error instanceof Error) {
     message = error?.message;
     errorMessages = error?.message
       ? [
-        {
-          path: '',
-          message: error?.message,
-        },
-      ]
+          {
+            path: "",
+            message: error?.message,
+          },
+        ]
       : [];
   }
 
   res.status(statusCode).json({
     success: false,
     message,
-    errorMessages,
-    stack: config.env !== 'production' ? error?.stack : undefined,
+    errorDetails: errorMessages,
   });
 };
 
