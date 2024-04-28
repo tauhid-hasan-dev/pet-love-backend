@@ -20,18 +20,13 @@ const createAdoptionRequest = catchAsync(
 
 const getAllFromDB: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
-    // console.log(req.query)
-    const filters = pick(req.query, petFilterableFields);
-    const options = pick(req.query, ["limit", "page", "sortBy", "sortOrder"]);
-    console.log(options);
-    const result = await AdoptionRequestServices.getAllFromDB(filters, options);
+    const result = await AdoptionRequestServices.getAllFromDB();
 
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: "Pets retrieved successfully",
-      meta: result.meta,
-      data: result.data,
+      message: "Adoption requests retrieved successfully",
+      data: result.result,
     });
   }
 );
