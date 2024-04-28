@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post(
   "/register",
-  /* validateRequest(UserValidation.createUser), */
+  validateRequest(UserValidation.createUser),
   UserController.createUser
 );
 
