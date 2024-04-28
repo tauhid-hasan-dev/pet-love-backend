@@ -1,19 +1,27 @@
 import bcrypt from "bcrypt";
-import httpStatus from "http-status";
-import { JwtPayload, Secret } from "jsonwebtoken";
+import { Secret } from "jsonwebtoken";
 import config from "../../../config";
-import ApiError from "../../../errors/ApiError";
 import { jwtHelpers } from "../../../helpers/jwtHelpers";
 
-import { ILoginUser } from "./auth.interface";
 import prisma from "../../../shared/prisma";
 
+interface UserData {
+  id: string;
+  name: string;
+  email: string;
+  password: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
 const loginUser = async (payload: { email: string; password: string }) => {
-  const userData = await prisma.user.findUniqueOrThrow({
+  const userData = (await prisma.user.findUniqueOrThrow({
     where: {
       email: payload.email,
     },
-  });
+  })) as UserData;
+
+  console.log(userData);
 
   const isCorrectPassword: boolean = await bcrypt.compare(
     payload.password,
@@ -32,7 +40,10 @@ const loginUser = async (payload: { email: string; password: string }) => {
   );
 
   return {
-    accessToken,
+    id: userData.id,
+    name: userData.name,
+    email: userData.email,
+    token: accessToken,
   };
 };
 
