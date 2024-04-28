@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from "express";
 import prisma from "../../../shared/prisma";
 import { IPaginationOptions } from "../../../interfaces/pagination";
-import { IPetFilterRequest } from "./pet.interface";
+import { IPetFilterRequest } from "./adoptionRequest.interface";
 import { paginationHelpers } from "../../../helpers/paginationHelper";
 import { Prisma } from "@prisma/client";
-import { petSearchableFields } from "./pet.constant";
+import { petSearchableFields } from "./adoptionRequest.constant";
 
 const getAllFromDB = async (
   params: IPetFilterRequest,
@@ -68,14 +68,26 @@ const getAllFromDB = async (
   };
 };
 
-const createPet = async (req: Request) => {
-  const result = await prisma.pet.create({
-    data: req.body,
-  });
-  return result;
+const createAdoptionRequest = async (req: Request) => {
+  let requestData: Prisma.AdoptionRequestCreateInput | undefined;
+  if (req.user !== null) {
+    requestData = {
+      userId: req.user.id,
+      ...req.body,
+    };
+  }
+  if (requestData) {
+    const result = await prisma.adoptionRequest.create({
+      data: requestData,
+    });
+    console.log({ result });
+    return result;
+  } else {
+    throw new Error("User information is missing.");
+  }
 };
 
-export const PetServices = {
-  createPet,
+export const AdoptionRequestServices = {
+  createAdoptionRequest,
   getAllFromDB,
 };
