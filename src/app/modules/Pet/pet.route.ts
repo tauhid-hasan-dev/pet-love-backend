@@ -8,6 +8,7 @@ const router = express.Router();
 
 router.post(
   "/pets",
+  auth(),
   validateRequest(petValidationSchema.createPetSchema),
   PetController.createPet
 );

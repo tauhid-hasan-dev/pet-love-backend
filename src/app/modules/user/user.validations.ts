@@ -11,7 +11,6 @@ const createUser = z.object({
     password: z.string({
       required_error: "Password is required",
     }),
-    role: z.string().optional(),
   }),
 });
 
