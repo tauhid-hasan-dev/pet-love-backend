@@ -11,4 +11,6 @@ router.post(
   PetController.createPet
 );
 
+router.get("/pets", PetController.getAllFromDB);
+
 export const PetRoutes = router;

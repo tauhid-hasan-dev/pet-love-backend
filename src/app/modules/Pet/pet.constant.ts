@@ -1,3 +1,10 @@
-export const adminFilterableFields = ['name', 'email', 'searchTerm', 'contactNumber'];
+export const petFilterableFields = [
+  "species",
+  "breed",
+  "age",
+  "size",
+  "location",
+  "searchTerm",
+];
 
-export const adminSearchableFields = ['name', 'email', 'contactNumber'];
+export const petSearchableFields = ["species", "breed", "location"];
