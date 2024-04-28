@@ -2,6 +2,7 @@ import express from "express";
 import validateRequest from "../../middlewares/validateRequest";
 import { petValidationSchema } from "./pet.validation";
 import { PetController } from "./pet.controller";
+import auth from "../../middlewares/auth";
 
 const router = express.Router();
 

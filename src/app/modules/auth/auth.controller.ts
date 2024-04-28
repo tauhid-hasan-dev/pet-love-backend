@@ -3,9 +3,6 @@ import catchAsync from "../../../shared/catchAsync";
 import sendResponse from "../../../shared/sendResponse";
 import { AuthService } from "./auth.services";
 import httpStatus from "http-status";
-import pick from "../../../shared/pick";
-import { PetServices } from "../Pet/pet.services";
-import { petFilterableFields } from "../Pet/pet.constant";
 
 const loginUser = catchAsync(async (req: Request, res: Response) => {
   const result = await AuthService.loginUser(req.body);
@@ -22,8 +19,6 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
     },
   });
 });
-
-
 
 export const AuthController = {
   loginUser,
