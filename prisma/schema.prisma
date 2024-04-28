@@ -29,10 +29,10 @@ model User {
 model Pet {
   id                   String   @id @default(uuid())
   name                 String
-  species              Species
+  species              String
   breed                String?
   age                  Int
-  size                 PetSize
+  size                 String
   location             String
   description          String?
   temperament          String?
