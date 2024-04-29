@@ -3,8 +3,8 @@
 		"_postman_id": "4d6946b1-11ea-4cd9-b2d0-9bc81ec8c4f7",
 		"name": "pet-adoption-platform",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "32340241",
-		"_collection_link": "https://me2222-4499.postman.co/workspace/me-Workspace~3197b940-23a6-4804-9622-d122fe46b31d/collection/32340241-4d6946b1-11ea-4cd9-b2d0-9bc81ec8c4f7?action=share&source=collection_link&creator=32340241"
+		"_exporter_id": "31250839",
+		"_collection_link": "https://me2222-4499.postman.co/workspace/me-Workspace~3197b940-23a6-4804-9622-d122fe46b31d/collection/32340241-4d6946b1-11ea-4cd9-b2d0-9bc81ec8c4f7?action=share&source=collection_link&creator=31250839"
 	},
 	"item": [
 		{
@@ -17,7 +17,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Tauhid Hasan\",\r\n    \"email\": \"tauhidhasan@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Ansar Ahmad\",\r\n    \"email\": \"ansar@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -25,12 +25,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/register",
-							"protocol": "http",
+							"raw": "https://pet-adoption-plaform-a8.vercel.app/api/register",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"pet-adoption-plaform-a8",
+								"vercel",
+								"app"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"register"
@@ -46,17 +47,18 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIyMzc3NGQ2LWIzMTAtNGI2YS1hYmJmLTVjMzA1N2Q4ODgyOSIsImVtYWlsIjoidGF1aGlkaGFzYW5AZ21haWwuY29tIiwiaWF0IjoxNzE0MzczMTA2LCJleHAiOjE3MTUyMzcxMDZ9.NElhT4_CJsuXgjVIPFDt-t5ZqncXQAeokL2j9TZPSes",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZTY4ZjVmLWNmNmYtNGUxNy05YTVjLWVhY2EwYTdhYjMxNSIsImVtYWlsIjoiYW5zYXJAZ21haWwuY29tIiwiaWF0IjoxNzE0NDA5NDY5LCJleHAiOjE3MTcwMDE0Njl9.enGVfiGWowQQxEQfWcL-IcziSlpv0BzRN_tFtPsqo2w",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/api/profile",
-							"protocol": "http",
+							"raw": "https://pet-adoption-plaform-a8.vercel.app/api/profile",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"pet-adoption-plaform-a8",
+								"vercel",
+								"app"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"profile"
@@ -72,13 +74,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIyMzc3NGQ2LWIzMTAtNGI2YS1hYmJmLTVjMzA1N2Q4ODgyOSIsImVtYWlsIjoiaXNtYWlsQGdtYWlsLmNvbSIsImlhdCI6MTcxNDM3NDc5MCwiZXhwIjoxNzE1MjM4NzkwfQ.tx39kKg0Jc0spHdMFZzNagq6W8YI2Jg2zFmyKO5FwEw",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZTY4ZjVmLWNmNmYtNGUxNy05YTVjLWVhY2EwYTdhYjMxNSIsImVtYWlsIjoiYW5zYXJAZ21haWwuY29tIiwiaWF0IjoxNzE0NDA5NDY5LCJleHAiOjE3MTcwMDE0Njl9.enGVfiGWowQQxEQfWcL-IcziSlpv0BzRN_tFtPsqo2w",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"name\": \"Mohmmad\",\r\n   \"email\": \"mohmmad@gmail.com\"\r\n}",
+							"raw": "{\r\n   \"name\": \"Ansar Bin Muhsin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -86,12 +88,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/profile",
-							"protocol": "http",
+							"raw": "https://pet-adoption-plaform-a8.vercel.app/api/profile",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"pet-adoption-plaform-a8",
+								"vercel",
+								"app"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"profile"
@@ -119,7 +122,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"email\": \"tauhidhasan@gmail.com\",\r\n   \"password\": \"123456\"\r\n}",
+							"raw": "{\r\n   \"email\": \"ansar@gmail.com\",\r\n   \"password\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -127,12 +130,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/login",
-							"protocol": "http",
+							"raw": "https://pet-adoption-plaform-a8.vercel.app/api/login",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"pet-adoption-plaform-a8",
+								"vercel",
+								"app"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"login"
@@ -153,13 +157,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIyMzc3NGQ2LWIzMTAtNGI2YS1hYmJmLTVjMzA1N2Q4ODgyOSIsImVtYWlsIjoiYWJ1QGdtYWlsLmNvbSIsImlhdCI6MTcxNDM3OTQwNCwiZXhwIjoxNzE1MjQzNDA0fQ.PRu7ymH0zmqsq6VyS5tw3nsZMadiiaT_eufBAXzMsWg",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZTY4ZjVmLWNmNmYtNGUxNy05YTVjLWVhY2EwYTdhYjMxNSIsImVtYWlsIjoiYW5zYXJAZ21haWwuY29tIiwiaWF0IjoxNzE0NDA5NDY5LCJleHAiOjE3MTcwMDE0Njl9.enGVfiGWowQQxEQfWcL-IcziSlpv0BzRN_tFtPsqo2w",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"location\": \"Shelter ABC\",\r\n   \"name\": \"Catty\",\r\n   \"breed\": \"fatty\"\r\n}\r\n",
+							"raw": "{\r\n   \"location\": \"Shelter ABC\",\r\n   \"name\": \"Doggy Moggy\",\r\n   \"breed\": \"fatty\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -167,16 +171,17 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/pets/f184e0f5-3b14-431b-b5c4-77052414222b",
-							"protocol": "http",
+							"raw": "https://pet-adoption-plaform-a8.vercel.app/api/pets/5dedacce-6934-431c-a402-afa8f96feccd",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"pet-adoption-plaform-a8",
+								"vercel",
+								"app"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"pets",
-								"f184e0f5-3b14-431b-b5c4-77052414222b"
+								"5dedacce-6934-431c-a402-afa8f96feccd"
 							]
 						}
 					},
@@ -189,13 +194,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhY2YxMDNiLWUyYjAtNDMxNi1hN2QzLTM2ZmY4OGVlZWU0ZCIsImVtYWlsIjoidGF1aGlkaGFzYW5AZ21haWwuY29tIiwiaWF0IjoxNzE0Mzk2NDI2LCJleHAiOjE3MTUyNjA0MjZ9.hp9JKZEEZUpTHmN2xPMZ0ToNSby8vixfVtAg5MruVyE",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZTY4ZjVmLWNmNmYtNGUxNy05YTVjLWVhY2EwYTdhYjMxNSIsImVtYWlsIjoiYW5zYXJAZ21haWwuY29tIiwiaWF0IjoxNzE0NDA5NDY5LCJleHAiOjE3MTcwMDE0Njl9.enGVfiGWowQQxEQfWcL-IcziSlpv0BzRN_tFtPsqo2w",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Whiskerssd\",\r\n    \"species\": \"Cat\",\r\n    \"breed\": \"Siamesesd\",\r\n    \"age\": 4,\r\n    \"size\": \"Medium\",\r\n    \"location\": \"Cozy Corner Sheltersd\",\r\n    \"description\": \"Whiskers is a playful and affectionate Siamese cat. He enjoys chasing toys and cuddling up on lapssd.\",\r\n    \"temperament\": \"Playful, affectionated\",\r\n    \"medicalHistory\": \"Up to date on vaccinations, microchipped.\",\r\n    \"adoptionRequirements\": \"Whiskers would thrive in a quiet home with a patient owner who can give him plenty of attention.\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Whiskerssy\",\r\n    \"species\": \"Cat\",\r\n    \"breed\": \"Siamesesy\",\r\n    \"age\": 4,\r\n    \"size\": \"Mediumd\",\r\n    \"location\": \"Cozy Corner Sheltersy\",\r\n    \"description\": \"Whiskers is a playful and affectionate Siamese cat. He enjoys chasing toys and cuddling up on lapssd.\",\r\n    \"temperament\": \"Playful, affectionated\",\r\n    \"medicalHistory\": \"Up to date on vaccinations, microchipped.\",\r\n    \"adoptionRequirements\": \"Whiskers would thrive in a quiet home with a patient owner who can give him plenty of attention.\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -203,12 +208,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/pets",
-							"protocol": "http",
+							"raw": "https://pet-adoption-plaform-a8.vercel.app/api/pets",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"pet-adoption-plaform-a8",
+								"vercel",
+								"app"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"pets"
@@ -223,15 +229,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/pets",
-							"protocol": "http",
+							"raw": "https://pet-adoption-plaform-a8.vercel.app/api/pets/f184e0f5-3b14-431b-b5c4-77052414222b",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"pet-adoption-plaform-a8",
+								"vercel",
+								"app"
 							],
-							"port": "3000",
 							"path": [
 								"api",
-								"pets"
+								"pets",
+								"f184e0f5-3b14-431b-b5c4-77052414222b"
 							],
 							"query": [
 								{
@@ -286,13 +294,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhY2YxMDNiLWUyYjAtNDMxNi1hN2QzLTM2ZmY4OGVlZWU0ZCIsImVtYWlsIjoidGF1aGlkaGFzYW5AZ21haWwuY29tIiwiaWF0IjoxNzE0Mzk2NDI2LCJleHAiOjE3MTUyNjA0MjZ9.hp9JKZEEZUpTHmN2xPMZ0ToNSby8vixfVtAg5MruVyE",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZTY4ZjVmLWNmNmYtNGUxNy05YTVjLWVhY2EwYTdhYjMxNSIsImVtYWlsIjoiYW5zYXJAZ21haWwuY29tIiwiaWF0IjoxNzE0NDA5NDY5LCJleHAiOjE3MTcwMDE0Njl9.enGVfiGWowQQxEQfWcL-IcziSlpv0BzRN_tFtPsqo2w",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"petId\": \"b50a0dd5-593c-43dd-a548-a21fed48a755\",\r\n   \"petOwnershipExperience\": \"Previous owner of a Labrador Retriever\"\r\n}",
+							"raw": "{\r\n   \"petId\": \"5dedacce-6934-431c-a402-afa8f96feccd\",\r\n   \"petOwnershipExperience\": \"Previous owner of a Labrador Retriever\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -300,12 +308,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/adoption-request",
-							"protocol": "http",
+							"raw": "https://pet-adoption-plaform-a8.vercel.app/api/adoption-request",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"pet-adoption-plaform-a8",
+								"vercel",
+								"app"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"adoption-request"
@@ -324,7 +333,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhY2YxMDNiLWUyYjAtNDMxNi1hN2QzLTM2ZmY4OGVlZWU0ZCIsImVtYWlsIjoidGF1aGlkaGFzYW5AZ21haWwuY29tIiwiaWF0IjoxNzE0Mzk2NDI2LCJleHAiOjE3MTUyNjA0MjZ9.hp9JKZEEZUpTHmN2xPMZ0ToNSby8vixfVtAg5MruVyE",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZTY4ZjVmLWNmNmYtNGUxNy05YTVjLWVhY2EwYTdhYjMxNSIsImVtYWlsIjoiYW5zYXJAZ21haWwuY29tIiwiaWF0IjoxNzE0NDA5NDY5LCJleHAiOjE3MTcwMDE0Njl9.enGVfiGWowQQxEQfWcL-IcziSlpv0BzRN_tFtPsqo2w",
 								"type": "text"
 							}
 						],
@@ -338,12 +347,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/adoption-requests",
-							"protocol": "http",
+							"raw": "https://pet-adoption-plaform-a8.vercel.app/api/adoption-requests",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"pet-adoption-plaform-a8",
+								"vercel",
+								"app"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"adoption-requests"
@@ -359,13 +369,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIyMzc3NGQ2LWIzMTAtNGI2YS1hYmJmLTVjMzA1N2Q4ODgyOSIsImVtYWlsIjoiYWJ1QGdtYWlsLmNvbSIsImlhdCI6MTcxNDM3OTQwNCwiZXhwIjoxNzE1MjQzNDA0fQ.PRu7ymH0zmqsq6VyS5tw3nsZMadiiaT_eufBAXzMsWg",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZTY4ZjVmLWNmNmYtNGUxNy05YTVjLWVhY2EwYTdhYjMxNSIsImVtYWlsIjoiYW5zYXJAZ21haWwuY29tIiwiaWF0IjoxNzE0NDA5NDY5LCJleHAiOjE3MTcwMDE0Njl9.enGVfiGWowQQxEQfWcL-IcziSlpv0BzRN_tFtPsqo2w",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"status\": \"PENDING\"\r\n}",
+							"raw": "{\r\n   \"status\": \"APPROVED\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -373,16 +383,17 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/adoption-requests/c266a916-9241-450b-91f6-90f0c50f3508",
-							"protocol": "http",
+							"raw": "https://pet-adoption-plaform-a8.vercel.app/api/adoption-requests/8519cb94-f804-47be-a8b9-8ae09cfdcfe7",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"pet-adoption-plaform-a8",
+								"vercel",
+								"app"
 							],
-							"port": "3000",
 							"path": [
 								"api",
 								"adoption-requests",
-								"c266a916-9241-450b-91f6-90f0c50f3508"
+								"8519cb94-f804-47be-a8b9-8ae09cfdcfe7"
 							]
 						}
 					},
