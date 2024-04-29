@@ -1,5 +1,4 @@
 import jwt, { JwtPayload, Secret } from 'jsonwebtoken';
-import config from '../config';
 
 const createToken = (
   payload: Record<string, unknown>,
@@ -16,15 +15,8 @@ const verifyToken = (token: string, secret: Secret): JwtPayload => {
   return jwt.verify(token, secret) as JwtPayload;
 };
 
-const createPasswordResetToken = (payload: object) => {
-  return jwt.sign(payload, config.jwt.reset_pass_secret as Secret, {
-    algorithm: 'HS256',
-    expiresIn: config.jwt.passwordResetTokenExpirationTime
-  });
-};
 
 export const jwtHelpers = {
   createToken,
   verifyToken,
-  createPasswordResetToken
 };

@@ -1,4 +1,4 @@
-import { ENUM_USER_ROLE } from '../enums/user';
+
 import { IGenericErrorMessage } from './error';
 
 export type IGenericResponse<T> = {
@@ -15,10 +15,3 @@ export type IGenericErrorResponse = {
   message: string;
   errorMessages: IGenericErrorMessage[];
 };
-
-
-/* export type IAuthUser = {
-  userId: string;
-  role: ENUM_USER_ROLE,
-  email: string
-} | null */
