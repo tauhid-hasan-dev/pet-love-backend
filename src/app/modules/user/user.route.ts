@@ -14,4 +14,6 @@ router.post(
 
 router.get("/profile", auth(), UserController.getProfile);
 
+router.patch("/profile", auth(), UserController.updateProfile);
+
 export const userRoutes = router;

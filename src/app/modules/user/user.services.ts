@@ -40,8 +40,29 @@ const getProfile = async (req: Request) => {
   }
 };
 
+const updateProfile = async (req: Request) => {
+  if (req.user) {
+    const userInfo = await prisma.user.update({
+        where: {
+          id : req.user.id
+        },
+        data: req.body
+    });
+    return {
+      id: userInfo.id,
+      name: userInfo.name,
+      email: userInfo.email,
+      createdAt : userInfo.createdAt,
+      updatedAt : userInfo.updatedAt,
+    };
+  } else {
+    throw new ApiError(httpStatus.NOT_FOUND, "User information not available");
+  }
+};
+
 
 export const UserServices = {
   createUser,
-  getProfile
+  getProfile,
+  updateProfile
 };
