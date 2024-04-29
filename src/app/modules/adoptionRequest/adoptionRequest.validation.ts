@@ -11,6 +11,16 @@ const createAdoptionRequestSchema = z.object({
   }),
 });
 
+
+const updateAdoptionRequestSchema = z.object({
+  body: z.object({
+    status: z.string({
+      required_error: "Status is required",
+    }),
+  }),
+});
+
 export const adoptionRequestValidationSchema = {
   createAdoptionRequestSchema,
+  updateAdoptionRequestSchema
 };

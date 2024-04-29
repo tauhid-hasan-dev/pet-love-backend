@@ -2,7 +2,6 @@ import { Request } from "express";
 import prisma from "../../../shared/prisma";
 
 import { Prisma } from "@prisma/client";
-import { petSearchableFields } from "./adoptionRequest.constant";
 
 const getAllFromDB = async () => {
   const result = await prisma.adoptionRequest.findMany();
