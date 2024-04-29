@@ -14,6 +14,14 @@ const createUser = z.object({
   }),
 });
 
+const updateUser = z.object({
+  body: z.object({
+    name: z.string().optional(),
+    email: z.string().optional(),
+  }),
+});
+
 export const UserValidation = {
   createUser,
+  updateUser
 };
