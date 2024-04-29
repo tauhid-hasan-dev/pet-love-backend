@@ -1,0 +1,394 @@
+{
+	"info": {
+		"_postman_id": "4d6946b1-11ea-4cd9-b2d0-9bc81ec8c4f7",
+		"name": "pet-adoption-platform",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32340241",
+		"_collection_link": "https://me2222-4499.postman.co/workspace/me-Workspace~3197b940-23a6-4804-9622-d122fe46b31d/collection/32340241-4d6946b1-11ea-4cd9-b2d0-9bc81ec8c4f7?action=share&source=collection_link&creator=32340241"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "register-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Tauhid Hasan\",\r\n    \"email\": \"tauhidhasan@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIyMzc3NGQ2LWIzMTAtNGI2YS1hYmJmLTVjMzA1N2Q4ODgyOSIsImVtYWlsIjoidGF1aGlkaGFzYW5AZ21haWwuY29tIiwiaWF0IjoxNzE0MzczMTA2LCJleHAiOjE3MTUyMzcxMDZ9.NElhT4_CJsuXgjVIPFDt-t5ZqncXQAeokL2j9TZPSes",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-profile",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIyMzc3NGQ2LWIzMTAtNGI2YS1hYmJmLTVjMzA1N2Q4ODgyOSIsImVtYWlsIjoiaXNtYWlsQGdtYWlsLmNvbSIsImlhdCI6MTcxNDM3NDc5MCwiZXhwIjoxNzE1MjM4NzkwfQ.tx39kKg0Jc0spHdMFZzNagq6W8YI2Jg2zFmyKO5FwEw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"Mohmmad\",\r\n   \"email\": \"mohmmad@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"email\": \"tauhidhasan@gmail.com\",\r\n   \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "pets",
+			"item": [
+				{
+					"name": "update-pet",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIyMzc3NGQ2LWIzMTAtNGI2YS1hYmJmLTVjMzA1N2Q4ODgyOSIsImVtYWlsIjoiYWJ1QGdtYWlsLmNvbSIsImlhdCI6MTcxNDM3OTQwNCwiZXhwIjoxNzE1MjQzNDA0fQ.PRu7ymH0zmqsq6VyS5tw3nsZMadiiaT_eufBAXzMsWg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"location\": \"Shelter ABC\",\r\n   \"name\": \"Catty\",\r\n   \"breed\": \"fatty\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/pets/f184e0f5-3b14-431b-b5c4-77052414222b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"pets",
+								"f184e0f5-3b14-431b-b5c4-77052414222b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-pets",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhY2YxMDNiLWUyYjAtNDMxNi1hN2QzLTM2ZmY4OGVlZWU0ZCIsImVtYWlsIjoidGF1aGlkaGFzYW5AZ21haWwuY29tIiwiaWF0IjoxNzE0Mzk2NDI2LCJleHAiOjE3MTUyNjA0MjZ9.hp9JKZEEZUpTHmN2xPMZ0ToNSby8vixfVtAg5MruVyE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Whiskerssd\",\r\n    \"species\": \"Cat\",\r\n    \"breed\": \"Siamesesd\",\r\n    \"age\": 4,\r\n    \"size\": \"Medium\",\r\n    \"location\": \"Cozy Corner Sheltersd\",\r\n    \"description\": \"Whiskers is a playful and affectionate Siamese cat. He enjoys chasing toys and cuddling up on lapssd.\",\r\n    \"temperament\": \"Playful, affectionated\",\r\n    \"medicalHistory\": \"Up to date on vaccinations, microchipped.\",\r\n    \"adoptionRequirements\": \"Whiskers would thrive in a quiet home with a patient owner who can give him plenty of attention.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/pets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"pets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-pets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/pets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"pets"
+							],
+							"query": [
+								{
+									"key": "searchTerm",
+									"value": "do",
+									"disabled": true
+								},
+								{
+									"key": "species",
+									"value": "dog",
+									"disabled": true
+								},
+								{
+									"key": "breed",
+									"value": "Siberian Husky",
+									"disabled": true
+								},
+								{
+									"key": "location",
+									"value": "Shelter XYZ",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "5",
+									"disabled": true
+								},
+								{
+									"key": "sortOrder",
+									"value": "asc",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "name",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "adoption-requests",
+			"item": [
+				{
+					"name": "submit-request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhY2YxMDNiLWUyYjAtNDMxNi1hN2QzLTM2ZmY4OGVlZWU0ZCIsImVtYWlsIjoidGF1aGlkaGFzYW5AZ21haWwuY29tIiwiaWF0IjoxNzE0Mzk2NDI2LCJleHAiOjE3MTUyNjA0MjZ9.hp9JKZEEZUpTHmN2xPMZ0ToNSby8vixfVtAg5MruVyE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"petId\": \"b50a0dd5-593c-43dd-a548-a21fed48a755\",\r\n   \"petOwnershipExperience\": \"Previous owner of a Labrador Retriever\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/adoption-request",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"adoption-request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-adoption-request",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhY2YxMDNiLWUyYjAtNDMxNi1hN2QzLTM2ZmY4OGVlZWU0ZCIsImVtYWlsIjoidGF1aGlkaGFzYW5AZ21haWwuY29tIiwiaWF0IjoxNzE0Mzk2NDI2LCJleHAiOjE3MTUyNjA0MjZ9.hp9JKZEEZUpTHmN2xPMZ0ToNSby8vixfVtAg5MruVyE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/adoption-requests",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"adoption-requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-adoption-status",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIyMzc3NGQ2LWIzMTAtNGI2YS1hYmJmLTVjMzA1N2Q4ODgyOSIsImVtYWlsIjoiYWJ1QGdtYWlsLmNvbSIsImlhdCI6MTcxNDM3OTQwNCwiZXhwIjoxNzE1MjQzNDA0fQ.PRu7ymH0zmqsq6VyS5tw3nsZMadiiaT_eufBAXzMsWg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"status\": \"PENDING\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/adoption-requests/c266a916-9241-450b-91f6-90f0c50f3508",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"adoption-requests",
+								"c266a916-9241-450b-91f6-90f0c50f3508"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
