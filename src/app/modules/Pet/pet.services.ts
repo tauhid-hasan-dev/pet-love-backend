@@ -37,7 +37,7 @@ const getAllFromDB = async (
     });
   }
 
-  //console.dir(andCondions, { depth: 'inifinity' })
+
   const whereConditons: Prisma.PetWhereInput = { AND: andCondions };
 
   const result = await prisma.pet.findMany({
@@ -74,6 +74,7 @@ const createPet = async (req: Request) => {
   });
   return result;
 };
+
 
 export const PetServices = {
   createPet,
