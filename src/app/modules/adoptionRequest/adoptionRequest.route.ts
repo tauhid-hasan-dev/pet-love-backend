@@ -15,5 +15,6 @@ router.post(
 );
 
 router.get("/adoption-requests", AdoptionRequestController.getAllFromDB);
+router.patch("/adoption-requests/:requestId", AdoptionRequestController.updateAdoptionRequest);
 
 export const AdoptionRequestRoutes = router;

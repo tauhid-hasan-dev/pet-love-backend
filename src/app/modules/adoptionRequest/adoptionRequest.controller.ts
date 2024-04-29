@@ -31,7 +31,22 @@ const getAllFromDB: RequestHandler = catchAsync(
   }
 );
 
+const updateAdoptionRequest: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const { requestId } = req.params;
+    const result = await AdoptionRequestServices.updateAdoptionRequest(requestId, req);
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "Adoption request updated successfully",
+      data: result,
+    });
+  }
+);
+
 export const AdoptionRequestController = {
   createAdoptionRequest,
   getAllFromDB,
+  updateAdoptionRequest
 };

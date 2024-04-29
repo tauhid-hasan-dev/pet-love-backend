@@ -30,7 +30,19 @@ const createAdoptionRequest = async (req: Request) => {
   }
 };
 
+const updateAdoptionRequest = async (requestId: string, req: Request) => {
+  const updatedRequestData = await prisma.adoptionRequest.update({
+    where: {
+      id: requestId,
+    }, 
+    data: req.body
+  })
+
+  return updatedRequestData;
+};
+
 export const AdoptionRequestServices = {
   createAdoptionRequest,
   getAllFromDB,
+  updateAdoptionRequest
 };
