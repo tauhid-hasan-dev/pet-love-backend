@@ -35,6 +35,23 @@ const createPetSchema = z.object({
   }),
 });
 
+
+const updatePetSchema = z.object({
+  body: z.object({
+    name: z.string().optional(),
+    species: z.string().optional(),
+    breed: z.string().optional(),
+    age: z.number().optional(),
+    size: z.string().optional(),
+    location: z.string().optional(),
+    description: z.string().optional(),
+    temperament: z.string().optional(),
+    medicalHistory: z.string().optional(),
+    adoptionRequirements: z.string().optional(),
+  }),
+});
+
 export const petValidationSchema = {
   createPetSchema,
+  updatePetSchema
 };

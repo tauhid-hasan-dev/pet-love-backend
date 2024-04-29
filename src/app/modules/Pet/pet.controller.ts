@@ -34,7 +34,22 @@ const getAllFromDB: RequestHandler = catchAsync(
   }
 );
 
+const updatePet: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const { petId } = req.params;
+    const result = await PetServices.updatePet(petId, req);
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "Pet profile updated successfully",
+      data: result,
+    });
+  }
+);
+
 export const PetController = {
   createPet,
   getAllFromDB,
+  updatePet
 };

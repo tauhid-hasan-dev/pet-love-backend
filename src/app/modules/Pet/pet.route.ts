@@ -15,4 +15,10 @@ router.post(
 
 router.get("/pets", PetController.getAllFromDB);
 
+router.patch("/pets/:petId", 
+  auth(), 
+  validateRequest(petValidationSchema.updatePetSchema),
+  PetController.updatePet
+);
+
 export const PetRoutes = router;

@@ -75,8 +75,20 @@ const createPet = async (req: Request) => {
   return result;
 };
 
+const updatePet = async (petId: string, req: Request) => {
+  const updatedData = await prisma.pet.update({
+    where: {
+      id: petId,
+    }, 
+    data: req.body
+  })
+
+  return updatedData;
+};
+
 
 export const PetServices = {
   createPet,
   getAllFromDB,
+  updatePet
 };
