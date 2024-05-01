@@ -14,11 +14,16 @@ router.post(
   AdoptionRequestController.createAdoptionRequest
 );
 
-router.get("/adoption-requests", auth(), AdoptionRequestController.getAllFromDB);
-router.patch(
+router.get(
+  "/adoption-requests",
+  auth(),
+  AdoptionRequestController.getAllFromDB
+);
+router.put(
   "/adoption-requests/:requestId",
-  auth(), 
-  validateRequest(adoptionRequestValidationSchema.updateAdoptionRequestSchema), 
-  AdoptionRequestController.updateAdoptionRequest);
+  auth(),
+  validateRequest(adoptionRequestValidationSchema.updateAdoptionRequestSchema),
+  AdoptionRequestController.updateAdoptionRequest
+);
 
 export const AdoptionRequestRoutes = router;
