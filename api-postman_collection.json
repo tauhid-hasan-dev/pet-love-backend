@@ -17,7 +17,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Ansar Ahmad\",\r\n    \"email\": \"ansar@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Afjal Hasan\",\r\n    \"email\": \"afjal@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -47,7 +47,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZTY4ZjVmLWNmNmYtNGUxNy05YTVjLWVhY2EwYTdhYjMxNSIsImVtYWlsIjoiYW5zYXJAZ21haWwuY29tIiwiaWF0IjoxNzE0NDA5NDY5LCJleHAiOjE3MTcwMDE0Njl9.enGVfiGWowQQxEQfWcL-IcziSlpv0BzRN_tFtPsqo2w",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIyZjIwOWRhLWJiZTEtNDZhMy05MWI1LTljZjA2YzFlOTVhZiIsImVtYWlsIjoiYWZqYWxAZ21haWwuY29tIiwiaWF0IjoxNzE0NDE0ODExLCJleHAiOjE3MTcwMDY4MTF9.H_z5NSWet0DIlhfqWfaIOU6w3OjbIqH556T5Ltsei90",
 								"type": "text"
 							}
 						],
@@ -70,17 +70,17 @@
 				{
 					"name": "update-profile",
 					"request": {
-						"method": "PATCH",
+						"method": "PUT",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhZTY4ZjVmLWNmNmYtNGUxNy05YTVjLWVhY2EwYTdhYjMxNSIsImVtYWlsIjoiYW5zYXJAZ21haWwuY29tIiwiaWF0IjoxNzE0NDA5NDY5LCJleHAiOjE3MTcwMDE0Njl9.enGVfiGWowQQxEQfWcL-IcziSlpv0BzRN_tFtPsqo2w",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIyZjIwOWRhLWJiZTEtNDZhMy05MWI1LTljZjA2YzFlOTVhZiIsImVtYWlsIjoiYWZqYWxAZ21haWwuY29tIiwiaWF0IjoxNzE0NTczNzc2LCJleHAiOjE3MTcxNjU3NzZ9.xARdh7l05ASguhw5yTQlZdR26mFDOJzTkCjbtRsits0",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"name\": \"Ansar Bin Muhsin\"\r\n}",
+							"raw": "{\r\n   \"name\": \"Abu aslam\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -122,7 +122,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"email\": \"ansar@gmail.com\",\r\n   \"password\": \"123456\"\r\n}",
+							"raw": "{\r\n   \"email\": \"afjal@gmail.com\",\r\n   \"password\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -153,7 +153,7 @@
 				{
 					"name": "update-pet",
 					"request": {
-						"method": "PATCH",
+						"method": "PUT",
 						"header": [
 							{
 								"key": "Authorization",
@@ -163,7 +163,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"location\": \"Shelter ABC\",\r\n   \"name\": \"Doggy Moggy\",\r\n   \"breed\": \"fatty\"\r\n}\r\n",
+							"raw": "{\r\n   \"location\": \"Putted Dog\",\r\n   \"name\": \"Putted\",\r\n   \"breed\": \"fatty\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -171,7 +171,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://pet-adoption-plaform-a8.vercel.app/api/pets/5dedacce-6934-431c-a402-afa8f96feccd",
+							"raw": "https://pet-adoption-plaform-a8.vercel.app/api/pets/07c5c96f-eda7-4476-9876-fdd44c330603",
 							"protocol": "https",
 							"host": [
 								"pet-adoption-plaform-a8",
@@ -181,7 +181,7 @@
 							"path": [
 								"api",
 								"pets",
-								"5dedacce-6934-431c-a402-afa8f96feccd"
+								"07c5c96f-eda7-4476-9876-fdd44c330603"
 							]
 						}
 					},
@@ -229,7 +229,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://pet-adoption-plaform-a8.vercel.app/api/pets/f184e0f5-3b14-431b-b5c4-77052414222b",
+							"raw": "https://pet-adoption-plaform-a8.vercel.app/api/pets?limit=5",
 							"protocol": "https",
 							"host": [
 								"pet-adoption-plaform-a8",
@@ -238,13 +238,12 @@
 							],
 							"path": [
 								"api",
-								"pets",
-								"f184e0f5-3b14-431b-b5c4-77052414222b"
+								"pets"
 							],
 							"query": [
 								{
 									"key": "searchTerm",
-									"value": "do",
+									"value": "Ca",
 									"disabled": true
 								},
 								{
@@ -264,8 +263,7 @@
 								},
 								{
 									"key": "limit",
-									"value": "5",
-									"disabled": true
+									"value": "5"
 								},
 								{
 									"key": "sortOrder",
@@ -365,7 +363,7 @@
 				{
 					"name": "update-adoption-status",
 					"request": {
-						"method": "PATCH",
+						"method": "PUT",
 						"header": [
 							{
 								"key": "Authorization",
@@ -375,7 +373,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"status\": \"APPROVED\"\r\n}",
+							"raw": "{\r\n   \"status\": \"PENDING\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -383,7 +381,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://pet-adoption-plaform-a8.vercel.app/api/adoption-requests/8519cb94-f804-47be-a8b9-8ae09cfdcfe7",
+							"raw": "https://pet-adoption-plaform-a8.vercel.app/api/adoption-requests/f59f8a89-9723-4cd9-a999-1a31335368a8",
 							"protocol": "https",
 							"host": [
 								"pet-adoption-plaform-a8",
@@ -393,7 +391,7 @@
 							"path": [
 								"api",
 								"adoption-requests",
-								"8519cb94-f804-47be-a8b9-8ae09cfdcfe7"
+								"f59f8a89-9723-4cd9-a999-1a31335368a8"
 							]
 						}
 					},
