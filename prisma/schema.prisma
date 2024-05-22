@@ -18,6 +18,10 @@ model User {
   name               String     
   email              String     @unique
   password           String
+  role               UserRole   @default(USER)
+  status             UserStatus @default(ACTIVE)
+  profilePhoto       String?
+  needPasswordChange Boolean    @default(true)
   createdAt          DateTime   @default(now())
   updatedAt          DateTime   @updatedAt
   adoptionRequests   AdoptionRequest[]
@@ -34,10 +38,11 @@ model Pet {
   age                  Int
   size                 String
   location             String
+  healthStatus         String
   description          String?
   temperament          String?
-  medicalHistory       String?
   adoptionRequirements String?
+  isDeleted            Boolean  @default(false)
   createdAt            DateTime @default(now())
   updatedAt            DateTime @updatedAt
   adoptionRequests      AdoptionRequest[]
@@ -59,6 +64,18 @@ model AdoptionRequest {
   pet                  Pet      @relation(fields: [petId], references: [id])
 
   @@map("adoptionRequests")
+}
+
+enum UserStatus {
+  BLOCKED
+  ACTIVE
+  DELETED
+}
+
+
+enum UserRole {
+  ADMIN
+  USER
 }
 
 enum RequestStatus {
