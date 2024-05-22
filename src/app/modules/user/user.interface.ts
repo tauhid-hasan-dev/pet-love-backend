@@ -6,8 +6,10 @@ export type IUserFilterRequest = {
 
 export type IUser = {
   id: string;
-  name: string;
   email: string;
+  role: string;
+  needPasswordChange: boolean;
+  profilePhoto: string;
   createdAt: Date;
   updatedAt: Date;
 };

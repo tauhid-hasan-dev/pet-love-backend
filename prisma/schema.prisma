@@ -20,7 +20,7 @@ model User {
   password           String
   role               UserRole   @default(USER)
   status             UserStatus @default(ACTIVE)
-  profilePhoto       String?
+  profilePhoto       String?     
   needPasswordChange Boolean    @default(true)
   createdAt          DateTime   @default(now())
   updatedAt          DateTime   @updatedAt
@@ -28,7 +28,6 @@ model User {
 
   @@map("users")
 }
-
 
 model Pet {
   id                   String   @id @default(uuid())
@@ -38,18 +37,18 @@ model Pet {
   age                  Int
   size                 String
   location             String
-  healthStatus         String
+  healthStatus         String   
   description          String?
   temperament          String?
   adoptionRequirements String?
+  profilePhoto         String?
   isDeleted            Boolean  @default(false)
   createdAt            DateTime @default(now())
   updatedAt            DateTime @updatedAt
-  adoptionRequests      AdoptionRequest[]
+  adoptionRequests     AdoptionRequest[]
 
   @@map("pets")
 }
-
 
 model AdoptionRequest {
   id                   String   @id @default(uuid())
@@ -72,27 +71,14 @@ enum UserStatus {
   DELETED
 }
 
-
 enum UserRole {
   ADMIN
   USER
 }
 
 enum RequestStatus {
-   PENDING 
-   APPROVED 
-   REJECTED
-}
-
-enum PetSize {
-   SMALL
-   MEDIUM 
-   LARGE
-}
-
-enum Species {
-   SMALL
-   MEDIUM 
-   LARGE
+  PENDING 
+  APPROVED 
+  REJECTED
 }
 
