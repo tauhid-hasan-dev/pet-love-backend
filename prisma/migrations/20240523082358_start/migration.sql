@@ -1,12 +1,3 @@
-/*
-  Warnings:
-
-  - You are about to drop the column `needPasswordChange` on the `users` table. All the data in the column will be lost.
-  - You are about to drop the column `role` on the `users` table. All the data in the column will be lost.
-  - You are about to drop the column `status` on the `users` table. All the data in the column will be lost.
-  - You are about to drop the `admins` table. If the table is not empty, all the data it contains will be lost.
-
-*/
 -- CreateEnum
 CREATE TYPE "RequestStatus" AS ENUM ('PENDING', 'APPROVED', 'REJECTED');
 
@@ -16,31 +7,26 @@ CREATE TYPE "PetSize" AS ENUM ('SMALL', 'MEDIUM', 'LARGE');
 -- CreateEnum
 CREATE TYPE "Species" AS ENUM ('SMALL', 'MEDIUM', 'LARGE');
 
--- DropForeignKey
-ALTER TABLE "admins" DROP CONSTRAINT "admins_email_fkey";
+-- CreateTable
+CREATE TABLE "users" (
+    "id" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "password" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
 
--- AlterTable
-ALTER TABLE "users" DROP COLUMN "needPasswordChange",
-DROP COLUMN "role",
-DROP COLUMN "status";
-
--- DropTable
-DROP TABLE "admins";
-
--- DropEnum
-DROP TYPE "UserRole";
-
--- DropEnum
-DROP TYPE "UserStatus";
+    CONSTRAINT "users_pkey" PRIMARY KEY ("id")
+);
 
 -- CreateTable
 CREATE TABLE "pets" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
-    "species" "Species" NOT NULL,
+    "species" TEXT NOT NULL,
     "breed" TEXT,
     "age" INTEGER NOT NULL,
-    "size" "PetSize" NOT NULL,
+    "size" TEXT NOT NULL,
     "location" TEXT NOT NULL,
     "description" TEXT,
     "temperament" TEXT,
@@ -64,6 +50,9 @@ CREATE TABLE "adoptionRequests" (
 
     CONSTRAINT "adoptionRequests_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
 
 -- AddForeignKey
 ALTER TABLE "adoptionRequests" ADD CONSTRAINT "adoptionRequests_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
