@@ -4,10 +4,18 @@ export type IUserFilterRequest = {
   status?: undefined;
 };
 
-export type IUser = {
+enum Role {
+  USER = "USER",
+  ADMIN = "ADMIN",
+}
+
+// Define the User type
+type User = {
   id: string;
   name: string;
   email: string;
+  password: string;
   createdAt: Date;
   updatedAt: Date;
+  role: Role;
 };
