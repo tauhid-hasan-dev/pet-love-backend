@@ -9,6 +9,7 @@ interface UserData {
   id: string;
   name: string;
   email: string;
+  role: string;
   password: string;
   createdAt: Date;
   updatedAt: Date;
@@ -35,6 +36,7 @@ const loginUser = async (payload: { email: string; password: string }) => {
     {
       id: userData.id,
       email: userData.email,
+      role: userData.role,
     },
     config.jwt.secret as Secret,
     config.jwt.expires_in as string
@@ -44,6 +46,7 @@ const loginUser = async (payload: { email: string; password: string }) => {
     id: userData.id,
     name: userData.name,
     email: userData.email,
+    role: userData.role,
     accessToken: accessToken,
   };
 };
