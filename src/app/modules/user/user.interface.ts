@@ -10,7 +10,7 @@ enum Role {
 }
 
 // Define the User type
-type User = {
+export type User = {
   id: string;
   name: string;
   email: string;
@@ -18,4 +18,5 @@ type User = {
   createdAt: Date;
   updatedAt: Date;
   role: Role;
+  profilePhoto: String;
 };
