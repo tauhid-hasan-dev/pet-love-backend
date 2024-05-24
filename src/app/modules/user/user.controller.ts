@@ -3,6 +3,21 @@ import catchAsync from "../../../shared/catchAsync";
 import sendResponse from "../../../shared/sendResponse";
 import httpStatus from "http-status";
 import { UserServices } from "./user.services";
+import pick from "../../../shared/pick";
+import { userFilterableFields } from "./user.constant";
+
+const getAllFromDB = catchAsync(async (req: Request, res: Response) => {
+  const filters = pick(req.query, userFilterableFields);
+  const options = pick(req.query, ["limit", "page", "sortBy", "sortOrder"]);
+  const result = await UserServices.getAllFromDB(filters, options);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Users retrieval successfully",
+    meta: result.meta,
+    data: result.data,
+  });
+});
 
 const createUser = catchAsync(async (req: Request, res: Response) => {
   const result = await UserServices.createUser(req);
@@ -13,7 +28,6 @@ const createUser = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
-
 
 const getProfile = catchAsync(async (req: Request, res: Response) => {
   const result = await UserServices.getProfile(req);
@@ -38,5 +52,6 @@ const updateProfile = catchAsync(async (req: Request, res: Response) => {
 export const UserController = {
   createUser,
   getProfile,
-  updateProfile
+  updateProfile,
+  getAllFromDB,
 };

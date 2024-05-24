@@ -3,6 +3,76 @@ import * as bcrypt from "bcrypt";
 import prisma from "../../../shared/prisma";
 import ApiError from "../../../errors/ApiError";
 import httpStatus from "http-status";
+import { Prisma, User } from "@prisma/client";
+import { paginationHelpers } from "../../../helpers/paginationHelper";
+import { IGenericResponse } from "../../../interfaces/common";
+import { IPaginationOptions } from "../../../interfaces/pagination";
+import { IUserFilterRequest } from "./user.interface";
+import { userSearchableFields } from "./user.constant";
+
+const getAllFromDB = async (
+  filters: IUserFilterRequest,
+  options: IPaginationOptions
+): Promise<IGenericResponse<User[]>> => {
+  const { limit, page, skip } = paginationHelpers.calculatePagination(options);
+  const { searchTerm, ...filterData } = filters;
+
+  const whereConditions: any[] = [];
+
+  if (searchTerm) {
+    whereConditions.push({
+      OR: userSearchableFields.map((field: any) => ({
+        [field]: {
+          contains: searchTerm,
+          mode: "insensitive",
+        },
+      })),
+    });
+  }
+
+  if (Object.keys(filterData).length > 0) {
+    Object.keys(filterData).forEach((key) => {
+      whereConditions.push({
+        [key]: {
+          equals: (filterData as any)[key],
+        },
+      });
+    });
+  }
+
+  whereConditions.push({
+    isDeleted: false, // Filter out deleted users
+  });
+
+  const result = await prisma.user.findMany({
+    where: {
+      AND: whereConditions,
+    },
+    skip,
+    take: limit,
+    orderBy:
+      options.sortBy && options.sortOrder
+        ? { [options.sortBy]: options.sortOrder }
+        : {
+            createdAt: "desc",
+          },
+  });
+
+  const total = await prisma.user.count({
+    where: {
+      AND: whereConditions,
+    },
+  });
+
+  return {
+    meta: {
+      total,
+      page,
+      limit,
+    },
+    data: result,
+  };
+};
 
 const createUser = async (req: Request) => {
   const hashedPassword: string = await bcrypt.hash(req.body.password, 12);
@@ -65,4 +135,5 @@ export const UserServices = {
   createUser,
   getProfile,
   updateProfile,
+  getAllFromDB,
 };

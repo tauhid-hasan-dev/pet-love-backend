@@ -6,6 +6,8 @@ import auth from "../../middlewares/auth";
 
 const router = express.Router();
 
+router.get("/users", UserController.getAllFromDB);
+
 router.post(
   "/register",
   validateRequest(UserValidation.createUser),

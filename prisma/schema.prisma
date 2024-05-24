@@ -27,7 +27,8 @@ model User {
   role               Role       @default(USER)
   profilePhoto       String?  
   needPasswordChange Boolean    @default(true)
-  status             UserStatus @default(ACTIVE)  
+  status             UserStatus @default(ACTIVE) 
+  isDeleted          Boolean    @default(false)   
   createdAt          DateTime   @default(now())
   updatedAt          DateTime   @updatedAt
   adoptionRequests   AdoptionRequest[]
@@ -49,6 +50,7 @@ model Pet {
   temperament          String?
   healthStatus         String?
   adoptionRequirements String?
+  isDeleted            Boolean  @default(false)  
   createdAt            DateTime @default(now())
   updatedAt            DateTime @updatedAt
   adoptionRequests      AdoptionRequest[]

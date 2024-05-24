@@ -20,3 +20,6 @@ export type User = {
   role: Role;
   profilePhoto: String;
 };
+
+
+
