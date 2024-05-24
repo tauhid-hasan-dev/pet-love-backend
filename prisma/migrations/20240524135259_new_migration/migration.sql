@@ -1,4 +1,7 @@
 -- CreateEnum
+CREATE TYPE "Role" AS ENUM ('USER', 'ADMIN');
+
+-- CreateEnum
 CREATE TYPE "RequestStatus" AS ENUM ('PENDING', 'APPROVED', 'REJECTED');
 
 -- CreateEnum
@@ -7,12 +10,19 @@ CREATE TYPE "PetSize" AS ENUM ('SMALL', 'MEDIUM', 'LARGE');
 -- CreateEnum
 CREATE TYPE "Species" AS ENUM ('SMALL', 'MEDIUM', 'LARGE');
 
+-- CreateEnum
+CREATE TYPE "UserStatus" AS ENUM ('BLOCKED', 'ACTIVE');
+
 -- CreateTable
 CREATE TABLE "users" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
+    "role" "Role" NOT NULL DEFAULT 'USER',
+    "profilePhoto" TEXT,
+    "needPasswordChange" BOOLEAN NOT NULL DEFAULT true,
+    "status" "UserStatus" NOT NULL DEFAULT 'ACTIVE',
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -23,14 +33,15 @@ CREATE TABLE "users" (
 CREATE TABLE "pets" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
-    "species" TEXT NOT NULL,
+    "type" TEXT NOT NULL,
     "breed" TEXT,
     "age" INTEGER NOT NULL,
     "size" TEXT NOT NULL,
     "location" TEXT NOT NULL,
+    "photo" TEXT NOT NULL,
     "description" TEXT,
     "temperament" TEXT,
-    "medicalHistory" TEXT,
+    "healthStatus" TEXT,
     "adoptionRequirements" TEXT,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,

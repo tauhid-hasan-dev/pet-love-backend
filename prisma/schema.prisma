@@ -39,14 +39,15 @@ model User {
 model Pet {
   id                   String   @id @default(uuid())
   name                 String
-  species              String
+  type                 String
   breed                String?
   age                  Int
   size                 String
   location             String
+  photo                String
   description          String?
   temperament          String?
-  medicalHistory       String?
+  healthStatus         String?
   adoptionRequirements String?
   createdAt            DateTime @default(now())
   updatedAt            DateTime @updatedAt
