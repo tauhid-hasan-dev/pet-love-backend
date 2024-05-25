@@ -17,7 +17,7 @@ app.use('/api', routes);
 
 app.get('/', (req: Request, res: Response) => {
     res.send({
-        Message: "Pet adoption platform server is running......."
+        Message: "Pet love server is running......."
     })
 });
 
