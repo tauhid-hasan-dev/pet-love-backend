@@ -1,5 +1,5 @@
 export type IPetFilterRequest = {
-  type?: string | undefined;
+  species?: string | undefined;
   searchTerm?: string | undefined;
   breed?: string | undefined;
   age?: string | undefined;
