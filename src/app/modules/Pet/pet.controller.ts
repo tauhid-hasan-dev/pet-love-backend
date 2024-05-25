@@ -34,6 +34,20 @@ const getAllFromDB: RequestHandler = catchAsync(
   }
 );
 
+const getSinglePet: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const { petId } = req.params;
+    const result = await PetServices.getSinglePet(petId);
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "Single Pet Retrieved successfully",
+      data: result,
+    });
+  }
+);
+
 const updatePet: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const { petId } = req.params;
@@ -51,5 +65,6 @@ const updatePet: RequestHandler = catchAsync(
 export const PetController = {
   createPet,
   getAllFromDB,
-  updatePet
+  updatePet,
+  getSinglePet,
 };

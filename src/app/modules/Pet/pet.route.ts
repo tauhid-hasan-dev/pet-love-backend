@@ -22,4 +22,6 @@ router.put(
   PetController.updatePet
 );
 
+router.get("/pets/:petId", auth(), PetController.getSinglePet);
+
 export const PetRoutes = router;

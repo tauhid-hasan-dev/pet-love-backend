@@ -37,7 +37,6 @@ const getAllFromDB = async (
     });
   }
 
-
   const whereConditons: Prisma.PetWhereInput = { AND: andCondions };
 
   const result = await prisma.pet.findMany({
@@ -79,16 +78,26 @@ const updatePet = async (petId: string, req: Request) => {
   const updatedData = await prisma.pet.update({
     where: {
       id: petId,
-    }, 
-    data: req.body
-  })
+    },
+    data: req.body,
+  });
 
   return updatedData;
 };
 
+const getSinglePet = async (petId: string) => {
+  const updatedData = await prisma.pet.findUnique({
+    where: {
+      id: petId,
+    },
+  });
+
+  return updatedData;
+};
 
 export const PetServices = {
   createPet,
   getAllFromDB,
-  updatePet
+  updatePet,
+  getSinglePet,
 };
