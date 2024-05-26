@@ -63,6 +63,8 @@ model AdoptionRequest {
   id                   String   @id @default(uuid())
   userId               String
   petId                String
+  userName             String?
+  userEmail            String?
   status               RequestStatus  @default(PENDING)
   petOwnershipExperience String
   createdAt            DateTime @default(now())
