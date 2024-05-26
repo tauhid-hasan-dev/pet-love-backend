@@ -1,5 +1,6 @@
 export const petFilterableFields = [
   "species",
+  "gender",
   "breed",
   "age",
   "size",
@@ -9,6 +10,7 @@ export const petFilterableFields = [
 
 export const petSearchableFields = [
   "name",
+  "gender",
   "species",
   "breed",
   "location",
