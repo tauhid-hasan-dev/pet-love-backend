@@ -44,6 +44,7 @@ model Pet {
   breed                String?
   age                  Int
   size                 String
+  gender               String?   
   location             String
   description          String?
   temperament          String?
