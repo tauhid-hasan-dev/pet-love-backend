@@ -76,6 +76,11 @@ model AdoptionRequest {
   @@map("adoptionRequests")
 }
 
+enum UserRole {
+  ADMIN
+  USER
+}
+
 enum RequestStatus {
    PENDING 
    APPROVED 

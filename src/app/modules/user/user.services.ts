@@ -3,7 +3,7 @@ import * as bcrypt from "bcrypt";
 import prisma from "../../../shared/prisma";
 import ApiError from "../../../errors/ApiError";
 import httpStatus from "http-status";
-import { Prisma, User, UserStatus } from "@prisma/client";
+import { Prisma, Role, User, UserStatus } from "@prisma/client";
 import { paginationHelpers } from "../../../helpers/paginationHelper";
 import { IGenericResponse } from "../../../interfaces/common";
 import { IPaginationOptions } from "../../../interfaces/pagination";
@@ -152,10 +152,31 @@ const changeProfileStatus = async (userId: string, status: UserStatus) => {
   return updatedUser;
 };
 
+const updateRole = async (userId: string, role: Role) => {
+  const isUserExist = await prisma.user.findUnique({
+    where: {
+      id: userId,
+    },
+  });
+  if (!isUserExist) {
+    throw new ApiError(httpStatus.BAD_REQUEST, "User does not exists!");
+  }
+
+  const updatedUser = await prisma.user.update({
+    where: {
+      id: userId,
+    },
+    data: role,
+  });
+
+  return updatedUser;
+};
+
 export const UserServices = {
   createUser,
   getProfile,
   updateProfile,
   getAllFromDB,
   changeProfileStatus,
+  updateRole,
 };

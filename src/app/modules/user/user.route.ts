@@ -30,4 +30,11 @@ router.patch(
   UserController.changeProfileStatus
 );
 
+router.patch(
+  "/:id/role",
+  auth(),
+  validateRequest(UserValidation.updateRole),
+  UserController.updateRole
+);
+
 export const userRoutes = router;
