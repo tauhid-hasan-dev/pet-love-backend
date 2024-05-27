@@ -21,7 +21,14 @@ const updateUser = z.object({
   }),
 });
 
+const updateStatus = z.object({
+  body: z.object({
+    status: z.enum(["ACTIVE", "BLOCKED"]),
+  }),
+});
+
 export const UserValidation = {
   createUser,
-  updateUser
+  updateUser,
+  updateStatus,
 };

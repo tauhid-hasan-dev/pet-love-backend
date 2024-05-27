@@ -23,4 +23,11 @@ router.put(
   UserController.updateProfile
 );
 
+router.patch(
+  "/:id/status",
+  auth(),
+  validateRequest(UserValidation.updateStatus),
+  UserController.changeProfileStatus
+);
+
 export const userRoutes = router;
