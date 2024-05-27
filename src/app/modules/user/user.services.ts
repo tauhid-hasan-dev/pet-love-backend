@@ -104,6 +104,7 @@ const getProfile = async (req: Request) => {
       id: userInfo.id,
       name: userInfo.name,
       email: userInfo.email,
+      profilePhoto: userInfo.profilePhoto,
       createdAt: userInfo.createdAt,
       updatedAt: userInfo.updatedAt,
     };
@@ -125,6 +126,7 @@ const updateProfile = async (req: Request) => {
       name: userInfo.name,
       email: userInfo.email,
       createdAt: userInfo.createdAt,
+      profilePhoto: userInfo.profilePhoto,
       updatedAt: userInfo.updatedAt,
     };
   } else {
