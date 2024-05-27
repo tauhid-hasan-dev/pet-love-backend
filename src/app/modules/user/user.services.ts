@@ -82,7 +82,8 @@ const createUser = async (req: Request) => {
     email: req.body.email,
     password: hashedPassword,
     role: req.body.role,
-    profilePhoto: req.body.profilePhoto || "https://i.ibb.co/0rNMXrn/user.png",
+    profilePhoto:
+      req.body.profilePhoto || "https://i.ibb.co/DDDbVvH/profile.png",
   };
 
   const result = await prisma.user.create({
