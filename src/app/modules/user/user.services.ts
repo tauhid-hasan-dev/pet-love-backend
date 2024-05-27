@@ -102,6 +102,7 @@ const getProfile = async (req: Request) => {
     });
     return {
       id: userInfo.id,
+      role: userInfo.role,
       name: userInfo.name,
       email: userInfo.email,
       profilePhoto: userInfo.profilePhoto,
@@ -124,6 +125,7 @@ const updateProfile = async (req: Request) => {
     return {
       id: userInfo.id,
       name: userInfo.name,
+      role: userInfo.role,
       email: userInfo.email,
       createdAt: userInfo.createdAt,
       profilePhoto: userInfo.profilePhoto,
