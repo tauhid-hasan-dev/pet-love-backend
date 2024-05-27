@@ -98,7 +98,7 @@ const createUser = async (req: Request) => {
 const getProfile = async (req: Request) => {
   if (req.user) {
     const userInfo = await prisma.user.findUniqueOrThrow({
-      where: { email: req.user.email },
+      where: { id: req.user.id },
     });
     return {
       id: userInfo.id,
