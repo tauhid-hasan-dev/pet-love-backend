@@ -4,7 +4,11 @@ import config from "../../../config";
 import { jwtHelpers } from "../../../helpers/jwtHelpers";
 
 import prisma from "../../../shared/prisma";
-import { IChangePassword } from "./auth.interface";
+import {
+  IChangePassword,
+  ILoginUser,
+  ILoginUserResponse,
+} from "./auth.interface";
 import { UserStatus } from "@prisma/client";
 import httpStatus from "http-status";
 import ApiError from "../../../errors/ApiError";
@@ -21,7 +25,7 @@ interface UserData {
   updatedAt: Date;
 }
 
-const loginUser = async (payload: { email: string; password: string }) => {
+/* const loginUser = async (payload: { email: string; password: string }) => {
   const userData = (await prisma.user.findUniqueOrThrow({
     where: {
       email: payload.email,
@@ -55,6 +59,57 @@ const loginUser = async (payload: { email: string; password: string }) => {
     email: userData.email,
     role: userData.role,
     accessToken: accessToken,
+  };
+}; */
+
+const loginUser = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
+  const { email, password } = payload;
+
+  const userData = await prisma.user.findUnique({
+    where: {
+      email,
+      status: UserStatus.ACTIVE,
+    },
+  });
+
+  if (!userData) {
+    throw new ApiError(httpStatus.NOT_FOUND, "User does not exist");
+  }
+
+  if (
+    userData.password &&
+    !(await AuthUtils.comparePasswords(password, userData.password))
+  ) {
+    throw new ApiError(httpStatus.UNAUTHORIZED, "Password is incorrect");
+  }
+
+  const { needPasswordChange } = userData;
+  const accessToken = jwtHelpers.createToken(
+    {
+      id: userData.id,
+      name: userData.name,
+      email: userData.email,
+      role: userData.role,
+    },
+    config.jwt.secret as Secret,
+    config.jwt.expires_in as string
+  );
+
+  const refreshToken = jwtHelpers.createToken(
+    {
+      id: userData.id,
+      name: userData.name,
+      email: userData.email,
+      role: userData.role,
+    },
+    config.jwt.refresh_secret as Secret,
+    config.jwt.refresh_expires_in as string
+  );
+
+  return {
+    accessToken,
+    refreshToken,
+    needPasswordChange,
   };
 };
 
