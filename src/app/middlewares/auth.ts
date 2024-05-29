@@ -9,7 +9,7 @@ const auth =
   (...requiredRoles: string[]) =>
   async (req: Request, res: Response, next: NextFunction) => {
     try {
-      console.log({ requiredRoles });
+      // console.log({ requiredRoles });
       //get authorization token
       const token = req.headers.authorization;
       if (!token) {
@@ -22,7 +22,7 @@ const auth =
 
       req.user = verifiedUser; // role  , userid
 
-      console.log("Inside the auth function", verifiedUser.role);
+      // console.log("Inside the auth function", verifiedUser.role);
 
       // role diye guard korar jnno
       if (requiredRoles.length && !requiredRoles.includes(verifiedUser.role)) {
