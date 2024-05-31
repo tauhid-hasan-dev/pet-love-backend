@@ -8,6 +8,7 @@ import {
   IChangePassword,
   ILoginUser,
   ILoginUserResponse,
+  IRefreshTokenResponse,
 } from "./auth.interface";
 import { UserStatus } from "@prisma/client";
 import httpStatus from "http-status";
@@ -24,43 +25,6 @@ interface UserData {
   createdAt: Date;
   updatedAt: Date;
 }
-
-/* const loginUser = async (payload: { email: string; password: string }) => {
-  const userData = (await prisma.user.findUniqueOrThrow({
-    where: {
-      email: payload.email,
-    },
-  })) as UserData;
-
-  console.log(userData);
-
-  const isCorrectPassword: boolean = await bcrypt.compare(
-    payload.password,
-    userData.password
-  );
-
-  if (!isCorrectPassword) {
-    throw new Error("Password incorrect!");
-  }
-  const accessToken = jwtHelpers.createToken(
-    {
-      id: userData.id,
-      name: userData.name,
-      email: userData.email,
-      role: userData.role,
-    },
-    config.jwt.secret as Secret,
-    config.jwt.expires_in as string
-  );
-
-  return {
-    id: userData.id,
-    name: userData.name,
-    email: userData.email,
-    role: userData.role,
-    accessToken: accessToken,
-  };
-}; */
 
 const loginUser = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
   const { email, password } = payload;
@@ -154,7 +118,47 @@ const changePassword = async (
   });
 };
 
+const refreshToken = async (token: string): Promise<IRefreshTokenResponse> => {
+  //verify token
+  // invalid token - synchronous
+  let verifiedToken = null;
+  try {
+    verifiedToken = jwtHelpers.verifyToken(
+      token,
+      config.jwt.refresh_secret as Secret
+    );
+  } catch (err) {
+    throw new ApiError(httpStatus.FORBIDDEN, "Invalid Refresh Token");
+  }
+
+  const { id } = verifiedToken;
+
+  const isUserExist = await prisma.user.findUnique({
+    where: {
+      id: id,
+      status: UserStatus.ACTIVE,
+    },
+  });
+  if (!isUserExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, "User does not exist");
+  }
+
+  const newAccessToken = jwtHelpers.createToken(
+    {
+      userId: isUserExist.id,
+      role: isUserExist.role,
+    },
+    config.jwt.secret as Secret,
+    config.jwt.expires_in as string
+  );
+
+  return {
+    accessToken: newAccessToken,
+  };
+};
+
 export const AuthService = {
   loginUser,
   changePassword,
+  refreshToken,
 };
