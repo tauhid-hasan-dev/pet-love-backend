@@ -62,9 +62,24 @@ const updatePet: RequestHandler = catchAsync(
   }
 );
 
+const deleteFromDB: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    console.log(req.params);
+    const { petId } = req.params;
+    const result = await PetServices.deleteFromDb(petId);
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "Pet deleted successfully",
+      data: result,
+    });
+  }
+);
+
 export const PetController = {
   createPet,
   getAllFromDB,
   updatePet,
   getSinglePet,
+  deleteFromDB,
 };
