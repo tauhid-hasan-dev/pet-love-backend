@@ -96,6 +96,7 @@ const getSinglePet = async (petId: string) => {
 };
 
 const deleteFromDb = async (id: string) => {
+  console.log(id);
   const deletedPet = await prisma.pet.delete({
     where: {
       id,

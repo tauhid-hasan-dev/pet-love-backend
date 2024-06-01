@@ -42,4 +42,10 @@ router.patch(
   UserController.updateRole
 );
 
+router.get(
+  "/user/:userId",
+  auth(ENUM_USER_ROLE.ADMIN),
+  UserController.deleteFromDB
+);
+
 export const userRoutes = router;
