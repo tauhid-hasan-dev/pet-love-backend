@@ -51,6 +51,7 @@ model Pet {
   medicalHistory       String?
   adoptionRequirements String?
   photos               String[]
+  isDeleted            Boolean    @default(false) 
   createdAt            DateTime @default(now())
   updatedAt            DateTime @updatedAt
   adoptionRequests      AdoptionRequest[]

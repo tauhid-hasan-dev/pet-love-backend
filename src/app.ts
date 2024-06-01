@@ -9,8 +9,9 @@ const app: Application = express();
 
 // CORS configuration
 const corsOptions = {
-  origin: "http://localhost:3000", // specify the origin you want to allow
-  credentials: true, // allow credentials (cookies, authorization headers, etc.)
+  origin: "http://localhost:3000",
+  /*   origin: "https://pet-love-eight.vercel.app", */
+  credentials: true,
 };
 
 app.use(cors(corsOptions));
