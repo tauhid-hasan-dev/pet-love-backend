@@ -176,6 +176,16 @@ const updateRole = async (userId: string, role: Role) => {
   return updatedUser;
 };
 
+const deleteFromDb = async (id: string) => {
+  const deletedUser = await prisma.user.delete({
+    where: {
+      id,
+    },
+  });
+
+  return deletedUser;
+};
+
 export const UserServices = {
   createUser,
   getProfile,
@@ -183,4 +193,5 @@ export const UserServices = {
   getAllFromDB,
   changeProfileStatus,
   updateRole,
+  deleteFromDb,
 };

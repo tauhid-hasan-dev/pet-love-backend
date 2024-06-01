@@ -27,7 +27,7 @@ router.get("/pets/:petId", PetController.getSinglePet);
 
 router.delete(
   "/pets/:petId",
-  /* auth(ENUM_USER_ROLE.ADMIN), */
+  auth(ENUM_USER_ROLE.ADMIN),
   PetController.deleteFromDB
 );
 
