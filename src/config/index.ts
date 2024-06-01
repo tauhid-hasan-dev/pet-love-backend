@@ -10,8 +10,6 @@ export default {
   jwt: {
     secret: process.env.JWT_SECRET,
     expires_in: process.env.EXPIRES_IN,
-    refresh_secret: process.env.REFREASH_SECRET,
-    refresh_expires_in: process.env.REFREASH_EXPIRES_IN,
   },
   reset_link: process.env.RESET_LINK,
   email: process.env.EMAIL,
