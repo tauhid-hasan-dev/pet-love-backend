@@ -42,7 +42,7 @@ router.patch(
   UserController.updateRole
 );
 
-router.get(
+router.delete(
   "/user/:userId",
   auth(ENUM_USER_ROLE.ADMIN),
   UserController.deleteFromDB
