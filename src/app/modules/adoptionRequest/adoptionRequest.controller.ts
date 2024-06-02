@@ -3,8 +3,6 @@ import catchAsync from "../../../shared/catchAsync";
 import sendResponse from "../../../shared/sendResponse";
 import httpStatus from "http-status";
 import { AdoptionRequestServices } from "./adoptionRequest.services";
-import pick from "../../../shared/pick";
-import { petFilterableFields } from "./adoptionRequest.constant";
 
 const createAdoptionRequest = catchAsync(
   async (req: Request, res: Response) => {
@@ -20,7 +18,6 @@ const createAdoptionRequest = catchAsync(
 
 const getAllFromDB: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
-    console.log("get allllllllllllllllll from db");
     const result = await AdoptionRequestServices.getAllFromDB();
 
     sendResponse(res, {
