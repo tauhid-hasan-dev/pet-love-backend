@@ -5,9 +5,7 @@ import { Prisma } from "@prisma/client";
 
 const getAllFromDB = async () => {
   const result = await prisma.adoptionRequest.findMany();
-  return {
-    result,
-  };
+  return result;
 };
 
 const getAllPendingRequests = async (userId: any) => {
@@ -19,9 +17,7 @@ const getAllPendingRequests = async (userId: any) => {
       },
     },
   });
-  return {
-    result,
-  };
+  return result;
 };
 
 const getAllAdoptedPets = async (userId: any) => {
@@ -31,9 +27,7 @@ const getAllAdoptedPets = async (userId: any) => {
       status: "APPROVED",
     },
   });
-  return {
-    result,
-  };
+  return result;
 };
 
 const createAdoptionRequest = async (req: Request) => {

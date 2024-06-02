@@ -27,7 +27,7 @@ const getAllFromDB: RequestHandler = catchAsync(
       statusCode: httpStatus.OK,
       success: true,
       message: "Adoption requests retrieved successfully",
-      data: result.result,
+      data: result,
     });
   }
 );
