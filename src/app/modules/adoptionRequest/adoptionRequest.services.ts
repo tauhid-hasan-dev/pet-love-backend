@@ -10,6 +10,32 @@ const getAllFromDB = async () => {
   };
 };
 
+const getAllPendingRequests = async (userId: any) => {
+  const result = await prisma.adoptionRequest.findMany({
+    where: {
+      userId: userId,
+      status: {
+        in: ["PENDING", "REJECTED"],
+      },
+    },
+  });
+  return {
+    result,
+  };
+};
+
+const getAllAdoptedPets = async (userId: any) => {
+  const result = await prisma.adoptionRequest.findMany({
+    where: {
+      userId: userId,
+      status: "APPROVED",
+    },
+  });
+  return {
+    result,
+  };
+};
+
 const createAdoptionRequest = async (req: Request) => {
   let requestData: Prisma.AdoptionRequestCreateInput | undefined;
   if (req.user !== null) {
@@ -33,9 +59,9 @@ const updateAdoptionRequest = async (requestId: string, req: Request) => {
   const updatedRequestData = await prisma.adoptionRequest.update({
     where: {
       id: requestId,
-    }, 
-    data: req.body
-  })
+    },
+    data: req.body,
+  });
 
   return updatedRequestData;
 };
@@ -43,5 +69,7 @@ const updateAdoptionRequest = async (requestId: string, req: Request) => {
 export const AdoptionRequestServices = {
   createAdoptionRequest,
   getAllFromDB,
-  updateAdoptionRequest
+  updateAdoptionRequest,
+  getAllPendingRequests,
+  getAllAdoptedPets,
 };

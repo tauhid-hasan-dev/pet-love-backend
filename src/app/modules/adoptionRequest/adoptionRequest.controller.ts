@@ -20,6 +20,7 @@ const createAdoptionRequest = catchAsync(
 
 const getAllFromDB: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
+    console.log("get allllllllllllllllll from db");
     const result = await AdoptionRequestServices.getAllFromDB();
 
     sendResponse(res, {
@@ -34,7 +35,10 @@ const getAllFromDB: RequestHandler = catchAsync(
 const updateAdoptionRequest: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
     const { requestId } = req.params;
-    const result = await AdoptionRequestServices.updateAdoptionRequest(requestId, req);
+    const result = await AdoptionRequestServices.updateAdoptionRequest(
+      requestId,
+      req
+    );
 
     sendResponse(res, {
       statusCode: httpStatus.OK,
@@ -45,8 +49,34 @@ const updateAdoptionRequest: RequestHandler = catchAsync(
   }
 );
 
+const getAllPendingRequests = catchAsync(
+  async (req: Request, res: Response) => {
+    const { userId } = req.params;
+    const result = await AdoptionRequestServices.getAllPendingRequests(userId);
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.CREATED,
+      message: "Adoption requests retrieved successfully",
+      data: result,
+    });
+  }
+);
+
+const getAllAdoptedPets = catchAsync(async (req: Request, res: Response) => {
+  const { userId } = req.params;
+  const result = await AdoptionRequestServices.getAllAdoptedPets(userId);
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.CREATED,
+    message: "Adopted pets retrieved successfully",
+    data: result,
+  });
+});
+
 export const AdoptionRequestController = {
   createAdoptionRequest,
   getAllFromDB,
-  updateAdoptionRequest
+  updateAdoptionRequest,
+  getAllPendingRequests,
+  getAllAdoptedPets,
 };
