@@ -13,7 +13,8 @@ This is a pet adoption platform aiming to create a great user experience for ind
 
 - **Programming Language:** TypeScript
 - **Web Framework:** Express.js
-- **Object Relational Mapping (ORM):** Prisma with PostgreSQL
+- **Database:** PostgreSQL
+- **Object Relational Mapping (ORM):** Prisma
 - **Authentication:** JWT (JSON Web Tokens)
 
 ### **Topics are covered in this Project:**
