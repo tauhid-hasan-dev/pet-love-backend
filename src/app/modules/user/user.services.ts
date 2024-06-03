@@ -176,7 +176,7 @@ const updateRole = async (userId: string, role: Role) => {
   return updatedUser;
 };
 
-const deleteFromDb = async (id: string) => {
+/* const deleteFromDb = async (id: string) => {
   const deletedUser = await prisma.user.delete({
     where: {
       id,
@@ -184,6 +184,41 @@ const deleteFromDb = async (id: string) => {
   });
 
   return deletedUser;
+}; */
+
+const deleteFromDb = async (id: string) => {
+  try {
+    return await prisma.$transaction(async (transactionClient) => {
+      const userExists = await transactionClient.user.findUnique({
+        where: {
+          id,
+        },
+      });
+
+      if (!userExists) {
+        throw new Error(`Pet with id ${id} does not exist.`);
+      }
+
+      // Delete adoption requests associated with the pet first
+      await transactionClient.adoptionRequest.deleteMany({
+        where: {
+          userId: id,
+        },
+      });
+
+      // Delete the pet record
+      const deletedUser = await transactionClient.user.delete({
+        where: {
+          id,
+        },
+      });
+
+      return deletedUser;
+    });
+  } catch (error) {
+    console.error("Delete failed:", error);
+    throw error;
+  }
 };
 
 export const UserServices = {
