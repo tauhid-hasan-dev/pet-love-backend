@@ -96,14 +96,43 @@ const getSinglePet = async (petId: string) => {
 };
 
 const deleteFromDb = async (id: string) => {
-  console.log(id);
-  const deletedPet = await prisma.pet.delete({
-    where: {
-      id,
-    },
-  });
+  console.log({ id });
 
-  return deletedPet;
+  try {
+    return await prisma.$transaction(async (transactionClient) => {
+      // Check if the pet exists
+      const petExists = await transactionClient.pet.findUnique({
+        where: {
+          id,
+        },
+      });
+
+      if (!petExists) {
+        throw new Error(`Pet with id ${id} does not exist.`);
+      }
+
+      // Delete adoption requests associated with the pet first
+      await transactionClient.adoptionRequest.deleteMany({
+        where: {
+          petId: id,
+        },
+      });
+
+      // Delete the pet record
+      const deletedPet = await transactionClient.pet.delete({
+        where: {
+          id,
+        },
+      });
+
+      console.log(deletedPet);
+
+      return deletedPet;
+    });
+  } catch (error) {
+    console.error("Delete failed:", error);
+    throw error;
+  }
 };
 
 export const PetServices = {
