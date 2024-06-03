@@ -1,16 +1,20 @@
-# Pet Adoption Platform by Tauhid Hasan
-
-### **Live Server link:** https://pet-adoption-plaform-a8.vercel.app
-
-### **You tube link:** https://youtu.be/sZn71nW39Mk
+# Pet Love Server
+## A pet adoption platform by Tauhid Hasan
 
 This is a pet adoption platform aiming to create a great user experience for individuals interested in adopting pets. Users can submit adoption requests to pet owners. Owners will then have the option to approve or reject these requests. After submitting a request, users can update the request information. Users will be verified using JSON Web Tokens.
+
+#### **Project Live link:** https://pet-love-eight.vercel.app/
+####  **Live Server link:** https://pet-adoption-plaform-a8.vercel.app
+####  **Frontend Repo:** https://github.com/tauhid-hasan-dev/pet-love-client.git
+####  **Backend Repo:** https://github.com/tauhid-hasan-dev/pet-love-backend.git
+
 
 ### **Technology Stack:**
 
 - **Programming Language:** TypeScript
 - **Web Framework:** Express.js
-- **Object Relational Mapping (ORM):** Prisma with PostgreSQL
+- **Database:** PostgreSQL
+- **Object Relational Mapping (ORM):** Prisma
 - **Authentication:** JWT (JSON Web Tokens)
 
 ### **Topics are covered in this Project:**
@@ -30,8 +34,10 @@ This is a pet adoption platform aiming to create a great user experience for ind
 **Clone this repository in your machine**
 
 ```
-git clone https://github.com/tauhid-hasan-dev/template-server-typescript-node-express-postgresql-prisma.git
+git clone https://github.com/tauhid-hasan-dev/pet-love-backend.git
 ```
+
+
 
 **Install yarn for node_modules**
 
