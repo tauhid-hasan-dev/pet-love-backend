@@ -31,7 +31,6 @@ This is a pet adoption platform aiming to create a great user experience for ind
 
 **Clone this repository in your machine**
 
-```
 git clone https://github.com/tauhid-hasan-dev/pet-love-backend.git
 
 **Install yarn for node_modules**
