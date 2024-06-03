@@ -1,4 +1,5 @@
-# Pet Love Server - For a pet adoption platform by Tauhid Hasan
+# Pet Love Server
+## A pet adoption platform by Tauhid Hasan
 
 ### **Project Live link:** https://pet-love-eight.vercel.app/
 ### **Live Server link:** https://pet-adoption-plaform-a8.vercel.app
