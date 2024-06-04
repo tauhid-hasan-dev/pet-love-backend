@@ -9,8 +9,8 @@ const app: Application = express();
 
 // CORS configuration
 const corsOptions = {
-  origin: "http://localhost:3000",
-  // origin: "https://pet-love-eight.vercel.app",
+  /* origin: "http://localhost:3000", */
+  origin: "https://pet-love-eight.vercel.app",
   credentials: true,
 };
 
