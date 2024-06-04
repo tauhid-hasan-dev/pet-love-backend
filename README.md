@@ -7,6 +7,33 @@ This is a pet adoption platform aiming to create a great user experience for ind
 ####  **Live Server link:** https://pet-adoption-plaform-a8.vercel.app
 ####  **Frontend Repo:** https://github.com/tauhid-hasan-dev/pet-love-client.git
 ####  **Backend Repo:** https://github.com/tauhid-hasan-dev/pet-love-backend.git
+#### **Youtube Presentation:** https://youtu.be/coFm3dZChxE
+
+---
+
+**Admin Credential**
+```
+email: admin@petlove.com
+password: 123456
+```
+
+**User Credentials**
+```
+email: user@petlove.com
+password: 123456
+```
+```
+email: user-one@petlove.com
+password: 123456
+```
+```
+email: user-two@petlove.com
+password: 123456
+```
+```
+email: user-three@petlove.com
+password: 123456
+```
 
 
 ### **Technology Stack:**
